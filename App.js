@@ -6,7 +6,7 @@ import {
   Text,
   View
 } from 'react-native';
-import Main from './src/modules/login/Main';
+import Form from './src/modules/login/Form';
 
 const instructions = Platform.select({
   ios: ' Hello Akash',
@@ -16,7 +16,7 @@ const instructions = Platform.select({
 export default class App extends Component {
   render() {
     return (
-       <Main />
+       <Form />
     );
   }
 }

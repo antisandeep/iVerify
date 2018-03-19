@@ -1,6 +1,7 @@
 package com.iverify;
 
 import com.facebook.react.ReactActivity;
+import org.reactnative.camera.*;
 
 public class MainActivity extends ReactActivity {
 
