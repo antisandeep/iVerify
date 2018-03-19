@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
  
-const Container = (props) => {
+const CustomContainer = (props) => {
     return (
         <View style={styles.labelContainer}>
             { props.children }
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
     }
 });
  
-export default Container;
+export default CustomContainer;
