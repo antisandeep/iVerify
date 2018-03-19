@@ -11,7 +11,7 @@ import {
 import CustomContainer from '../components/CustomContainer';
 import Button from '../components/Button';
 import Label from '../components/Label';
-// import vv from './imgages/'
+import styles from '../components/CustomStyleSheet';
 
 
 
@@ -67,28 +67,4 @@ export default class Login extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    scroll: {
-        backgroundColor: '#E1D7D8',
-        padding: 30,
-        flexDirection: 'column'
-    },
-    label: {
-        color: '#0d8898',
-        fontSize: 20
-    },
-    alignRight: {
-        alignSelf: 'flex-end'
-    },
-    textInput: {
-        height: 40,
-        fontSize: 30,
-        backgroundColor: '#FFF'
-    },
-    image: {
-        height: 100,
-        width: 100,
-        alignSelf: 'flex-end',
-    },
 
-});
