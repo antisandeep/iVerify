@@ -5,37 +5,40 @@ import {
     Text,
     View,
     TextInput,
-    ScrollView
+    ScrollView,
+    Image
 } from 'react-native';
 import Container from '../components/Container';
 import Button from '../components/Button';
 import Label from '../components/Label';
+// import vv from './imgages/'
 
 
 
 export default class Login extends Component {
-constructor(props){
-    super(props)
-    this.state={Username:'GUEST'}
-}
+    constructor(props) {
+        super(props)
+        this.state = { Username: 'GUEST' }
+    }
 
     _handlePress(event) {
-    alert('Login Successful with: '+this.state.Username);
-  }
+        alert('Login Successful with: ' + this.state.Username);
+    }
     render() {
         return (
             <ScrollView style={styles.scroll}>
-                  
-                  {/* <Container>
-                    <Image 
-                    Source={require('/imgages/appicon.png')}
+
+                <Container>
+                    <Image
+                        source={require('../images/appicon.png')}
+                        style={styles.image}
                     />
-                </Container>   */}
+                </Container>
                 <Container>
                     <Label text="Username or Email" />
                     <TextInput
                         style={styles.textInput}
-                        onChangeText={(Username)=>this.setState({Username})}
+                        onChangeText={(Username) => this.setState({ Username })}
                     />
                 </Container>
                 <Container>
@@ -45,12 +48,12 @@ constructor(props){
                         style={styles.textInput}
                     />
                 </Container>
-                 <Container>
+                <Container>
                     <Button
                         label="Login"
                         styles={{ button: styles.alignRight, label: styles.label }}
                         onPress={this._handlePress.bind(this)} />
-                </Container> 
+                </Container>
             </ScrollView>
         );
     }
@@ -70,9 +73,14 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end'
     },
     textInput: {
-        height: 80,
+        height: 40,
         fontSize: 30,
         backgroundColor: '#FFF'
+    },
+    image: {
+        height: 100,
+        width: 100,
+        alignSelf: 'flex-end',
     },
 
 });
