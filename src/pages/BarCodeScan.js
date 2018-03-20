@@ -12,7 +12,8 @@ import {
   Text,
   Left,
   Right,
-  Body
+  Body,
+  Modal
 } from "native-base"; 
 import { RNCamera } from 'react-native-camera';
 
@@ -21,7 +22,7 @@ export default class BarCodeScan extends Component {
     super(props);      
   }
   render(){
-      return(
+      return(          
         <Content padder>
             <Card style={styles.ScanCodeTopMargin}>                
                 <CardItem>
@@ -34,6 +35,17 @@ export default class BarCodeScan extends Component {
                     </Right>
                 </CardItem>
             </Card>
+            <RNCamera
+              ref={ref => {
+                this.camera = ref;
+              }}    
+              type={RNCamera.Constants.Type.back}
+              flashMode={RNCamera.Constants.FlashMode.on}
+              permissionDialogTitle={'Permission to use camera'}
+              permissionDialogMessage={'We need your permission to use your camera phone'}
+              onBarCodeRead={this._onBarCodeRead}
+              autoFocus = {RNCamera.Constants.AutoFocus.on}
+            /> 
         </Content>
       );
   }
