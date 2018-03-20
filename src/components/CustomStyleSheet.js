@@ -29,6 +29,30 @@ const Styles = StyleSheet.create({
         width: 100,
         alignSelf: 'flex-end',
     },
+     container: {
+    backgroundColor: "#FFF",
+
+    },
+    loginButton : {
+        marginTop: 10
+    },
+    _logo : { 
+        width : 120,
+        height: 150
+    },
+    logoText : {
+        fontSize : 30,
+        marginTop:100,
+        fontWeight:'bold',
+        color: 'orange'
+    },
+    loginForm : {
+        marginTop: 20,
+        borderRadius : 4,
+        borderWidth: 0.5,
+        borderColor: '#e8f2ef',
+        backgroundColor : '#e8f2ef'
+    }
 
 });
  
