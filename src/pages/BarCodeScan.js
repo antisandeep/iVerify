@@ -14,6 +14,7 @@ import {
   Right,
   Body
 } from "native-base"; 
+import { RNCamera } from 'react-native-camera';
 
 export default class BarCodeScan extends Component {
  constructor(props) {
