@@ -9,7 +9,9 @@ import {
   Tab,
   Right,
   Left,
-  Body
+  Body,
+  TabHeading,
+  Text
 } from "native-base";
 import BarCodeScan from "./BarCodeScan";
 import History from "./History";
@@ -21,15 +23,31 @@ export default class LandingActivity extends Component {
       <Container>         
 
         <Tabs>
-          <Tab heading="Scan">
+            <Tab heading={
+              <TabHeading>
+                <Icon name="barcode" />
+                <Text>Scan</Text>
+              </TabHeading>
+            }>
             <BarCodeScan />
           </Tab>
-          <Tab heading="History">
+          <Tab heading={
+              <TabHeading>
+                <Icon name="bookmarks" />
+                <Text>History</Text>
+              </TabHeading>
+            }>
             <History />
           </Tab>
-          <Tab heading="Settings">
+          <Tab heading={
+              <TabHeading>
+                <Icon name="settings" />
+                <Text>Settings</Text>
+              </TabHeading>
+            }>
             <Settings />
           </Tab>
+  
         </Tabs>
       </Container>
     );
