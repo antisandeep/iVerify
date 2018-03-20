@@ -11,6 +11,27 @@ import {
   Left,
   Body
 } from "native-base";
-import ScanTab from "./BarCodeScan";
-import HistoryTab from "./History";
-import SetingsTab from "./Settings";
+import BarCodeScan from "./BarCodeScan";
+import History from "./History";
+import Settings from "./Settings";
+
+export default class LandingActivity extends Component {
+  render() {
+    return (
+      <Container>         
+
+        <Tabs>
+          <Tab heading="Scan">
+            <BarCodeScan />
+          </Tab>
+          <Tab heading="History">
+            <History />
+          </Tab>
+          <Tab heading="Settings">
+            <Settings />
+          </Tab>
+        </Tabs>
+      </Container>
+    );
+  }
+}

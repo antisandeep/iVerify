@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import BarCodeScan from './src/pages/BarCodeScan';
+import LandingActivity from './src/pages/LandingActivity';
 import SplashScreen from 'react-native-smart-splash-screen';
 
 
@@ -14,7 +14,7 @@ export default class App extends Component {
   }
   render() {
     return (
-      <BarCodeScan />
+      <LandingActivity />
     );
   }
 }
