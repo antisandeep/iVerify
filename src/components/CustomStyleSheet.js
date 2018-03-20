@@ -55,7 +55,12 @@ const Styles = StyleSheet.create({
     },
     ScanCodeTopMargin : {
         marginTop : 20,
-    }
+    },
+    ScanPreview: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center'  
+  }
 
 });
  
