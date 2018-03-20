@@ -18,18 +18,10 @@ import {
   View
 } from "native-base";
 import styles from './../components/CustomStyleSheet'; 
-import SplashScreen from 'react-native-smart-splash-screen';
 
 const logo = require("./../images/logo.png");
 export default class Login extends Component {
- constructor(props) {
-    super(props);
-     SplashScreen.close({
-        animationType: SplashScreen.animationType.scale,
-        duration: 0,
-        delay: 0,
-     })
-  }
+ 
       render() {
         return (
             <Container style={styles.container}>                
