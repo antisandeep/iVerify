@@ -49,7 +49,6 @@
 		BEF973740639407885D2AA1F /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63478776AE4B44A3A88CA679 /* Octicons.ttf */; };
 		C42F4E56E2F245FA9DA35F06 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 383145FCC68F464786A78DF8 /* EvilIcons.ttf */; };
 		D3684175B39648D7A0CE1149 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A4141B41A7343219396E54D /* MaterialCommunityIcons.ttf */; };
-		D81E4516A6CC4DEA9CE6AAAE /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFBD0F3D21A74C2483522AB5 /* libRCTCamera.a */; };
 		FA84F1BEAEC148F8B365A600 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC37D367F3BA425FBCEF3630 /* MaterialIcons.ttf */; };
 /* End PBXBuildFile section */
 
@@ -369,7 +368,6 @@
 		2D02E47B1E0B4A5D006451C7 /* iVerify-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iVerify-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* iVerify-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iVerify-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		316DAA883AA14C249EA4A054 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		380A4B5D7DEB477CA733B1AC /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		383145FCC68F464786A78DF8 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		3A6AD690E4F8429FB339EB3D /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
@@ -416,7 +414,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				7D7FAFEE9D524DC29803585C /* libRNVectorIcons.a in Frameworks */,
-				D81E4516A6CC4DEA9CE6AAAE /* libRCTCamera.a in Frameworks */,
 				AD1C50F192C540439518BC45 /* libRNCamera.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,7 +601,6 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				053F1BB6B82841409A8D850E /* RNVectorIcons.xcodeproj */,
-				316DAA883AA14C249EA4A054 /* RCTCamera.xcodeproj */,
 				A70115CB59484AED9BAF1F9E /* RNCamera.xcodeproj */,
 			);
 			name = Libraries;
@@ -786,6 +782,10 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = REBY39UW28;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1357,8 +1357,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = REBY39UW28;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
@@ -1372,7 +1374,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.diageo.intouch..iVerify;
 				PRODUCT_NAME = iVerify;
+				PROVISIONING_PROFILE = "ba5d3731-e39d-4632-a000-2b6f748a105f";
+				PROVISIONING_PROFILE_SPECIFIER = "Tcs POCs wildcard";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1381,7 +1386,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = REBY39UW28;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
@@ -1395,7 +1402,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.diageo.intouch..iVerify;
 				PRODUCT_NAME = iVerify;
+				PROVISIONING_PROFILE = "ba5d3731-e39d-4632-a000-2b6f748a105f";
+				PROVISIONING_PROFILE_SPECIFIER = "Tcs POCs wildcard";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
