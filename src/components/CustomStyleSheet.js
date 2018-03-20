@@ -52,6 +52,9 @@ const Styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: '#e8f2ef',
         backgroundColor : '#e8f2ef'
+    },
+    ScanCodeTopMargin : {
+        marginTop : 20,
     }
 
 });

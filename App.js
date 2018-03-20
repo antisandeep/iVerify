@@ -11,7 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
-import Login from './src/pages/Login';
+import Login from './src/pages/BarCodeScan';
 
 const instructions = Platform.select({
   ios: ' Hello Akash',
@@ -22,7 +22,7 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <Login />
+      <BarCodeScan />
     );
   }
 }
