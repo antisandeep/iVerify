@@ -21,9 +21,13 @@ import styles from './../components/CustomStyleSheet';
 
 const logo = require("./../images/logo.png");
 export default class Login extends Component {
-//  _handlePress() {
-//     console.log('Pressed!');
-//   },
+// constructor(props){
+//     super(props);
+//     this._
+// }
+ _handlePress() {
+    console.log('Pressed!');
+  },
       render() {
         return (
             <Container style={styles.container}>                
@@ -42,7 +46,7 @@ export default class Login extends Component {
                         <Input placeholder=" Password" secureTextEntry = {true} />                        
                     </Item>                     
                 </Form>
-                <Button block success style={styles.loginButton}/* onPress={this._handlePress.bind}*/>
+                <Button block success style={styles.loginButton} onPress={this._handlePress.bind(this)}>
                     <Text>Login</Text>
                     
                 </Button>
