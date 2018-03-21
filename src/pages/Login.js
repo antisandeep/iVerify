@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native'
+import { StyleSheet,Alert } from 'react-native'
 import {
   Container,
   Header,
@@ -15,19 +15,29 @@ import {
   Form,
   Text,
   Thumbnail,
-  View
+  View,
+  Toast
 } from "native-base";
 import styles from './../components/CustomStyleSheet'; 
 
 const logo = require("./../images/logo.png");
 export default class Login extends Component {
-// constructor(props){
-//     super(props);
-//     this._
-// }
- _handlePress() {
-    console.log('Pressed!');
-  },
+    constructor(props) {
+        super(props);    
+      this._onpressLogin = this._onpressLogin.bind(this); 
+      this.state={
+        showToast: false
+      } 
+           
+  }
+ _onpressLogin() {
+    // Alert.alert('akash');
+    Toast.show({
+        text: 'Login with Guest',
+        position: 'bottom',
+        buttonText: 'login msg'
+    })
+  }
       render() {
         return (
             <Container style={styles.container}>                
@@ -46,7 +56,7 @@ export default class Login extends Component {
                         <Input placeholder=" Password" secureTextEntry = {true} />                        
                     </Item>                     
                 </Form>
-                <Button block success style={styles.loginButton} onPress={this._handlePress.bind(this)}>
+                <Button block success style={styles.loginButton} onPress={this._onpressLogin}>
                     <Text>Login</Text>
                     
                 </Button>
