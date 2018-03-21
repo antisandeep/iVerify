@@ -1,0 +1,9 @@
+{
+	"default-user-name": "test@test.com",
+	"default-password": "changeme",
+	"errors": [],
+	"loginInformationRemote": {
+		"fetching": false,
+		"sessionToken": ""
+	}
+}

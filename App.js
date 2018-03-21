@@ -7,31 +7,32 @@
 import React, { Component } from 'react';
 import {
   Platform,
-  StyleSheet,
-  Text,
   View
 } from 'react-native';
-
+import { Provider } from 'react-redux'
+import storeFactory from './src/store'
 const instructions = Platform.select({
   ios: ' Hello Akash',
   android: 'Hello Sandeep',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <Provider store={storeFactory} >
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            Welcome to React Native!
+          </Text>
+          <Text style={styles.instructions}>
+            To get started, edit App.js
+          </Text>
+          <Text style={styles.instructions}>
+            {instructions}
+          </Text>
+        </View>
+      </Provider>
+      
     );
   }
 }
