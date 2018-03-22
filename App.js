@@ -11,11 +11,7 @@ import {
 } from 'react-native';
 import { Provider } from 'react-redux'
 import storeFactory from './src/store'
-const instructions = Platform.select({
-  ios: ' Hello Akash',
-  android: 'Hello Sandeep',
-});
-
+ 
 export default class App extends Component {
   render() {
     return (
@@ -31,8 +27,7 @@ export default class App extends Component {
             {instructions}
           </Text>
         </View>
-      </Provider>
-      
+      </Provider>      
     );
   }
 }
