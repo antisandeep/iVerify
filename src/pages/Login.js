@@ -30,8 +30,7 @@ export default class Login extends Component {
       } 
            
   }
- _onpressLogin() {
-    // Alert.alert('akash');
+ _onpressLogin() {    
     Toast.show({
         text: 'Login with Guest',
         position: 'bottom',
@@ -46,20 +45,19 @@ export default class Login extends Component {
                         <Text style={styles.logoText}> iVerify</Text>
                         <Thumbnail source={logo} style={styles._logo} />                        
                     </View>
-                <Form style={styles.loginForm}>  
-                    <Item>
-                        <Icon active name="person" />
-                        <Input placeholder="Username" />
-                    </Item>
-                    <Item>
-                        <Icon active name="lock" />
-                        <Input placeholder=" Password" secureTextEntry = {true} />                        
-                    </Item>                     
-                </Form>
-                <Button block success style={styles.loginButton} onPress={this._onpressLogin}>
-                    <Text>Login</Text>
-                    
-                </Button>
+                    <Form style={styles.loginForm}>  
+                        <Item>
+                            <Icon active name="person" />
+                            <Input placeholder="Username" />
+                        </Item>
+                        <Item>
+                            <Icon active name="lock" />
+                            <Input placeholder=" Password" secureTextEntry = {true} />                        
+                        </Item>                     
+                    </Form>
+                    <Button block success style={styles.loginButton} onPress={this._onpressLogin}>
+                        <Text>Login</Text>                    
+                    </Button>
                 </Content>
             </Container>
         );

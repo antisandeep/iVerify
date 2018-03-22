@@ -30,7 +30,7 @@ const Styles = StyleSheet.create({
         alignSelf: 'flex-end',
     },
      container: {
-    backgroundColor: "#FFF",
+        backgroundColor: "#FFF",
 
     },
     loginButton : {

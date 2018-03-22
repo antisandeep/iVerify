@@ -15,17 +15,21 @@ import {
 } from "native-base";
 import BarCodeScan from "./BarCodeScan";
 import History from "./History";
-import Settings from "./Settings";
+import Settings from "./Settings"; 
+import {StackNavigator} from 'react-navigation';
+
+ 
 
 export default class LandingActivity extends Component {
+  
   render() {
     return (
       <Container>         
-
+         
         <Tabs>
             <Tab heading={
               <TabHeading>
-                <Icon name="barcode" />
+                <Icon name="ios-qr-scanner" />
                 <Text>Scan</Text>
               </TabHeading>
             }>
