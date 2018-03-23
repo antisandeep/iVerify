@@ -1,14 +1,33 @@
 import React, { Component } from 'react'
 import { Root } from "native-base"
 import { Platform, StyleSheet } from 'react-native'
-
+import { Provider } from 'react-redux'
 import SplashScreen from 'react-native-smart-splash-screen'
-import LandingActivity from './src/pages/LandingActivity'
+import { StackNavigator } from 'react-navigation'
 
+import storeFactory from './src/store'
+import LandingActivity from './src/components/ui/pages/LandingActivity'
+import Login from './src/components/ui/pages/Login'
+import initialState from './src/initialState.json'
+
+
+const RootStack = StackNavigator(
+  {
+    Home: {
+      screen: Login,
+    },
+    Landing: {
+      screen: LandingActivity,
+    },
+  },
+  {
+    initialRouteName: 'Home',
+  }
+)
 
 export default class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     if (Platform.OS !== 'ios') {
       SplashScreen.close({
         animationType: SplashScreen.animationType.scale,
@@ -20,9 +39,12 @@ export default class App extends Component {
   }
   render() {
     return (
-      <Root>
-        <LandingActivity />
-      </Root>
-    );
+      <Provider store={storeFactory(initialState)} >
+        <Root>
+          <RootStack/>
+        </Root>
+      </Provider>
+    )
+
   }
 }

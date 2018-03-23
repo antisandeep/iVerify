@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import { Image, Dimensions } from "react-native";
-import styles from './../components/CustomStyleSheet'; 
-import RenderCondition from './../components/RenderCondition';   
+import React, { Component } from 'react'
+import { Image, Dimensions } from "react-native"
  
 import {
   Container,
@@ -17,37 +15,40 @@ import {
   Right,
   Body,
   Thumbnail  
-} from "native-base"; 
-import {Modal,TouchableHighlight,TouchableOpacity} from 'react-native';
-import { RNCamera } from 'react-native-camera'; 
+} from "native-base" 
+import {Modal,TouchableHighlight,TouchableOpacity} from 'react-native'
+import { RNCamera } from 'react-native-camera' 
 
-const deviceWidth = Dimensions.get("window").width;
-const ProductImg = require("./../images/don_Julio.jpg");
-const award = require("./../images/award.png");
+import Images from '@assets/images'
+import styles from '../common/CustomStyleSheet' 
+import RenderCondition from '../../RenderCondition'   
+
+const deviceWidth = Dimensions.get("window").width
+//const award = require("./../images/award.png")
 
 export default class BarCodeScan extends Component {
  constructor(props) {
-    super(props);   
-    this._onpressScan = this._onpressScan.bind(this);  
-    this._onBarCodeRead = this._onBarCodeRead.bind(this);     
+    super(props)   
+    this._onpressScan = this._onpressScan.bind(this)  
+    this._onBarCodeRead = this._onBarCodeRead.bind(this)     
   }
   
 state = {
     modalVisible: false,
     code: '',
     CodeScanned: false
-  }; 
+  } 
 
   setModalVisible(visible) {
-    this.setState({modalVisible: visible});
+    this.setState({modalVisible: visible})
   }
 _onpressScan (){     
-    this.setModalVisible(true);          
+    this.setModalVisible(true)          
   }
   _onBarCodeRead = function(e) { 
-      this.setModalVisible(false); 
-      this.setState({code : e.data});
-      this.setState({CodeScanned:true});
+      this.setModalVisible(false) 
+      this.setState({code : e.data})
+      this.setState({CodeScanned:true})
   }
    
   render(){
@@ -70,10 +71,10 @@ _onpressScan (){
             animationType="slide"
             transparent={false}
             visible={this.state.modalVisible}
-            onRequestClose={() => {this.setModalVisible(false); }}> 
+            onRequestClose={() => {this.setModalVisible(false) }}> 
                 <RNCamera
                 ref={ref => {
-                    this.camera = ref;
+                    this.camera = ref
                 }}
                 style = {styles.ScanPreview}    
                 type={RNCamera.Constants.Type.back}
@@ -89,7 +90,7 @@ _onpressScan (){
                     <CardItem bordered>
                     <Left>
                         <TouchableOpacity>  
-                            <Thumbnail source={award} />
+                            {/* <Thumbnail source={award} /> */}
                         </TouchableOpacity>
                         <Body>
                         <Text>Don Julio</Text>
@@ -107,7 +108,7 @@ _onpressScan (){
                                 width: deviceWidth / 3,
                                 marginVertical: 5
                             }}
-                            source={ProductImg}
+                            source={Images.bottleLogo}
                             />
                             <Text>
                                 Manufactured on : 01/01/15
@@ -150,6 +151,6 @@ _onpressScan (){
                 </Card>
              )} 
         </Content>
-      );
+      )
   }
 }

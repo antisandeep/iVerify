@@ -1,0 +1,39 @@
+{
+	"username": "",
+	"password": "",
+	"errors": [],
+	"loginResult": {
+		"fetching": false,
+		"sessionToken": ""
+	},
+	"products": [
+		{
+			"Id": "a0UD000000IKqPrMAL",
+			"Name": "Smirnoff Peach Tea Liqueur 0.7l",
+			"CurrencyIsoCode": "GBP",
+			"Hierarchy_Code__c": "A070R4DL7EGN01W",
+			"Product_Levels__c": "Spirit_Liqueur_Smirnoff_Smirnoff Peach Tea Liqueur 0.7l",
+			"IsActive__c": true,
+			"Brand_Name__c": "Smirnoff",
+			"SAP_Material_ID__c": "A070R4DL7EGN01W",
+			"Hierarchy_Level__c": "6",
+			"L1_Classification1__c": "Spirit",
+			"L2_Group1__c": "Liqueur",
+			"GUID__c": "a0UD000000IKqPr"
+		},
+		{
+			"Id": "a0UD000000KbMjgMAF",
+			"Name": "Jeremiah Weed Ky Style Cider Brew Ginger 0.33l",
+			"CurrencyIsoCode": "GBP",
+			"Hierarchy_Code__c": "B1Y0JQDK2EI000Z",
+			"Product_Levels__c": "Wine_Still Wine_Jeremiah Weed_Jeremiah Weed Ky Style Cider Brew Ginger 0.33l",
+			"IsActive__c": true,
+			"Brand_Name__c": "Jeremiah Weed",
+			"SAP_Material_ID__c": "B1Y0JQDK2EI000Z",
+			"Hierarchy_Level__c": "6",
+			"L1_Classification1__c": "Wine",
+			"L2_Group1__c": "Still Wine",
+			"GUID__c": "a0UD000000KbMjg"
+		}
+	]
+}
