@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, Image,TouchableOpacity } from "react-native";
+import { StyleSheet, Image,TouchableOpacity,Dimensions } from "react-native";
+import styles from './../components/CustomStyleSheet'; 
 import {
   Container,
   Header,
@@ -15,32 +16,49 @@ import {
   Body,
   Right
 } from "native-base";
- 
+const deviceWidth = Dimensions.get("window").width; 
 
 const award = require("./../images/award.png");
 
 
-const { params } = this.props.navigation.state;
-const ProductName = params ? params.ProductName : null;
-const ProductImgUrl = params ? params.ProductImgUrl : null;
-const ProductQty = params ? params.ProductQty : null;
-const ProductCost = params ? params.ProductCost : null;
-const MnufacturedOn = params ? params.MnufacturedOn : null;
-const IsGenuineProduct = params ? params.IsGenuineProduct : null;
+
+var ProductName ='';
+var ProductImgUrl='' ;
+var ProductQty=0 ;
+var ProductCost ='';
+var MnufacturedOn ='' ;
 
 export default class ProductInformation extends Component{
+static navigationOptions = {
+    title: 'Product Information',
+};
+constructor(props){
+  super(props);
+  const { params } = this.props.navigation.state;
+   ProductName = params ? params.ProductName : null;
+   ProductImgUrl = params ? params.ProductImgUrl : null;
+   ProductQty = params ? params.ProductQty : null;
+   ProductCost = params ? params.ProductCost : null;
+   MnufacturedOn = params ? params.MnufacturedOn : null;
+   IsGenuineProduct = params ? params.IsGenuineProduct : null;
+   this._navigateToReward = this._navigateToReward.bind(this); 
+}
+_navigateToReward(){    
+  const { navigate } = this.props.navigation;
+  navigate('Reward');
+}
     render(){
       return(
         
         <Content padder>
-          <Card style={styles.mb}>
+          <Card>
             <CardItem>
               <Left>
-                <TouchableOpacity onPress={() =>this.props.navigation.navigate('Reward')}>  
-                    <Thumbnail source={award} />
-                </TouchableOpacity> 
+                <TouchableOpacity onPress={this._navigateToReward}>  
+                  <Thumbnail source={award} />
+                </TouchableOpacity>
                 <Body>
-                  <Text>{ProductName}</Text> 
+                  <Text style={{ fontSize: 25,fontWeight:'bold'}}>{ProductName}</Text> 
                 </Body>
               </Left>
             </CardItem>
@@ -49,24 +67,26 @@ export default class ProductInformation extends Component{
               <Image
                 style={{
                   resizeMode: "cover",
-                  width: null,
-                  height: 200,
+                  width: deviceWidth-10,
+                  height: 400,
                   flex: 1
                 }}
-                source={ProductImgUrl}
+                source={require("./../images/don_Julio.jpg")}
               />
             </CardItem>
 
-            <CardItem style={{ paddingVertical: 0 }}>
-            <Text>
-                Manufactured on : {MnufacturedOn}
-            </Text>
-            <Text>
-                Pack of : {ProductQty}
-            </Text>
-            <Text>
-                MRP : {ProductCost}
-            </Text>
+            <CardItem>
+            <Body>
+              <Text>
+                  Manufactured on : {MnufacturedOn}
+              </Text>            
+              <Text>
+                  Pack of : {ProductQty}
+              </Text>             
+              <Text>
+                  MRP : {ProductCost}
+              </Text>
+            </Body>
             </CardItem>
           </Card>
         </Content>

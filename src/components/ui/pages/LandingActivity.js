@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Keyboard } from 'react-native'
 import {
   Container,
   Header,
@@ -15,14 +16,20 @@ import {
 } from "native-base";
 import BarCodeScan from "./BarCodeScan";
 import History from "./History";
-import Settings from "./Settings"; 
-import {StackNavigator} from 'react-navigation';
+import Settings from "./Settings";  
 
- 
 
 export default class LandingActivity extends Component {
+  constructor(props){
+    super(props);
+    {Keyboard.dismiss}
+  }
+
   
+
   render() {
+    const { navigate } = this.props.navigation
+
     return (
       <Container>         
          
@@ -33,7 +40,7 @@ export default class LandingActivity extends Component {
                 <Text>Scan</Text>
               </TabHeading>
             }>
-            <BarCodeScan />
+            <BarCodeScan navigation={this.props.navigation}/>
           </Tab>
           <Tab heading={
               <TabHeading>

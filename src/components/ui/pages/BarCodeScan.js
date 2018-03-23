@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { Image, Dimensions } from "react-native"
- 
+import React, { Component } from 'react';
+import { Image, Dimensions } from "react-native";
+
 import {
   Container,
   Header,
@@ -26,18 +26,22 @@ import RenderCondition from '../../RenderCondition'
 const deviceWidth = Dimensions.get("window").width
 //const award = require("./../images/award.png")
 
+ 
 export default class BarCodeScan extends Component {
+ 
  constructor(props) {
-    super(props)   
-    this._onpressScan = this._onpressScan.bind(this)  
-    this._onBarCodeRead = this._onBarCodeRead.bind(this)     
+    super(props);   
+    this._onpressScan = this._onpressScan.bind(this);  
+    this._onBarCodeRead = this._onBarCodeRead.bind(this);     
+    this._navigateToReward = this._navigateToReward.bind(this); 
+    this._natigateToProductInfo = this._natigateToProductInfo.bind(this); 
   }
   
 state = {
     modalVisible: false,
     code: '',
-    CodeScanned: false
-  } 
+    CodeScanned: true
+  }; 
 
   setModalVisible(visible) {
     this.setState({modalVisible: visible})
@@ -50,7 +54,21 @@ _onpressScan (){
       this.setState({code : e.data})
       this.setState({CodeScanned:true})
   }
-   
+  _navigateToReward(){    
+    const { navigate } = this.props.navigation;
+    navigate('Reward');
+  }
+  _natigateToProductInfo(){    
+    const { navigate } = this.props.navigation;    
+    navigate('ProductInfo', { 
+        ProductName: 'Don Julio' ,
+        ProductImgUrl : {ProductImg},
+        ProductQty : '1',
+        ProductCost : 'INR 2500',
+        IsGenuineProduct : 'true',
+        MnufacturedOn: '01-01-15'
+  });
+}
   render(){
       return(   
         <Content padder key={this.state.code}>
@@ -89,7 +107,7 @@ _onpressScan (){
                 <Card>
                     <CardItem bordered>
                     <Left>
-                        <TouchableOpacity>  
+                        <TouchableOpacity onPress={this._navigateToReward}>  
                             {/* <Thumbnail source={award} /> */}
                         </TouchableOpacity>
                         <Body>
@@ -122,29 +140,14 @@ _onpressScan (){
                         </Body>
                     </CardItem>
                     <CardItem style={{ paddingVertical: 0 }}>
-                        <Left>
-                              <Button>
-                                <Icon active name="information" style={{ fontSize :40 }}/>
-                                <Text>View More Information</Text>
-                            </Button>
-                            {/* <Button onPress={() =>
-                                    this.props.navigation.navigate('ProductInfo', { 
-                                        ProductName: 'Jane' ,
-                                        ProductImgUrl : {ProductImg},
-                                        ProductQty : '1',
-                                        ProductCost : 'INR 2500',
-                                        IsGenuineProduct : true,
-                                        MnufacturedOn: '01/01/15'
-                                    })
-                                }>
-                                <Icon active name="information" style={{ fontSize :40 }}/>
-                                <Text>View More Information</Text>
-                            </Button> */}
+                        <Left>                              
+                             <Button small onPress={this._natigateToProductInfo}>                                 
+                                <Text>More Info</Text>
+                            </Button> 
                         </Left>                     
                         <Right>
-                            <Button>
-                                <Icon active name="information" style={{ fontSize :40 }}/>
-                                <Text>Retailer Information</Text>
+                            <Button small>                                 
+                                <Text>Retailer Info</Text>
                             </Button>
                         </Right>
                     </CardItem>

@@ -4,6 +4,9 @@ import { Platform, StyleSheet } from 'react-native'
 import { Provider } from 'react-redux'
 import SplashScreen from 'react-native-smart-splash-screen'
 import { StackNavigator } from 'react-navigation'
+import { BackHandler } from 'react-native';
+
+import LoginRoute from './src/components/Route';
 
 import storeFactory from './src/store'
 import LandingActivity from './src/components/ui/pages/LandingActivity'
