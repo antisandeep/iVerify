@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,Alert } from 'react-native'
+import { StyleSheet,Alert,Keyboard } from 'react-native';
 import {
   Container,
   Header,
@@ -26,16 +26,30 @@ export default class Login extends Component {
         super(props);    
       this._onpressLogin = this._onpressLogin.bind(this); 
       this.state={
-        showToast: false
+        showToast: false,
+        uname: '',
+        passwrd: ''
       } 
            
   }
- _onpressLogin() {    
-    Toast.show({
-        text: 'Login with Guest',
-        position: 'bottom',
-        buttonText: 'login msg'
-    })
+ _onpressLogin() {   
+    const { navigate } = this.props.navigation;
+    var _uname = this.state.uname; 
+    var _pwd = this.state.passwrd; 
+    
+    Keyboard.dismiss();     
+    if(_uname == 'Diageo' && _pwd == 'Diageo123'){ 
+        this.setState({passwrd : ''});   
+        this.setState({uname : ''});      
+        navigate('MainActivity');
+    }else{
+        Toast.show({
+            text: 'Invalid Username or Password',
+            position: 'bottom',
+            buttonText: 'Error',
+            type: "danger" 
+        })
+    }
   }
       render() {
         return (
@@ -48,11 +62,16 @@ export default class Login extends Component {
                     <Form style={styles.loginForm}>  
                         <Item>
                             <Icon active name="person" />
-                            <Input placeholder="Username" />
+                            <Input placeholder="Username" onChangeText={(uname) => this.setState({uname})}
+                            value = {this.state.uname}
+                            />
                         </Item>
                         <Item>
                             <Icon active name="lock" />
-                            <Input placeholder=" Password" secureTextEntry = {true} />                        
+                            <Input placeholder="Password" secureTextEntry = {true} 
+                            onChangeText={(passwrd) => this.setState({passwrd})}
+                            value = {this.state.passwrd}
+                            />                        
                         </Item>                     
                     </Form>
                     <Button block success style={styles.loginButton} onPress={this._onpressLogin}>
