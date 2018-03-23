@@ -1,11 +1,9 @@
 {
-	"username": "",
-	"password": "",
-	"errors": [],
 	"loginResult": {
 		"fetching": false,
 		"sessionToken": ""
 	},
+	"errors": [],
 	"products": [
 		{
 			"Id": "a0UD000000IKqPrMAL",
