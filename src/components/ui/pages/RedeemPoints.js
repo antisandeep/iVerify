@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { StyleSheet } from "react-native";
+import React, { Component } from "react"
+import { StyleSheet } from "react-native"
 import {
   Container,
   Header,
@@ -12,14 +12,15 @@ import {
   Left,
   Right,
   Body
-} from "native-base";
-import styles from './../components/CustomStyleSheet'; 
-import Icon from 'react-native-vector-icons/FontAwesome';
+} from "native-base"
+
+import Icon from 'react-native-vector-icons/FontAwesome'
+import styles from '../common/CustomStyleSheet'
 
 export default class RedeemPoints extends Component {
     static navigationOptions = {
         title: 'Redeem Points',
-    };
+    }
     render() {
         return (
           <Container style={styles.container}>
@@ -114,6 +115,6 @@ export default class RedeemPoints extends Component {
               </Card>
             </Content>
           </Container>
-        );
+        )
       }
 }

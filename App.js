@@ -6,11 +6,9 @@ import SplashScreen from 'react-native-smart-splash-screen'
 import { StackNavigator } from 'react-navigation'
 import { BackHandler } from 'react-native'
 
-import LoginRoute from './src/components/Route';
-
 import storeFactory from './src/store'
 import LandingActivity from './src/components/ui/pages/LandingActivity'
-import Login from './src/components/ui/pages/Login'
+import Login from './src/components/containers/Login'
 import ProductInformation from './src/components/ui/pages/ProductInformation'
 import Reward from './src/components/ui/pages/Reward'
 import RedeemPoints from './src/components/ui/pages/RedeemPoints'

@@ -2,10 +2,10 @@ import C from './constants'
 
 
 // get present state through getState and use dispatch to invoke method later
-export const doLogin = (username, password) => (dispatch, getState) => {
-    if(!getState().loginResult.fetching){
+export const dummyLogin = (username, password, callback = f => f) => (dispatch, getState) => {
+    if (!getState().loginResult.fetching) {
         dispatch({
-            type: C.LOGIN_USER,            
+            type: C.LOGIN_USER,
         })
         setTimeout(() => {
             dispatch({
@@ -14,8 +14,20 @@ export const doLogin = (username, password) => (dispatch, getState) => {
                     sessionToken: "abcdef12345"
                 }
             })
+            if (username !== 'test@test.com' && password !== 'changeme')
+                callback(true)
+            else
+                callback(false, 'Invalid Username or Password')
 
         }, 1500)
 
     }
+}
+
+export const dummyProductSearch = (productCode) => (dispatch, getState) => {
+    const product = getState().products.find( product => product.GUID__c === productCode)
+    dispatch({
+        type: C.FETCH_PRODUCT_DETAILS,
+        payload: product
+    })
 }

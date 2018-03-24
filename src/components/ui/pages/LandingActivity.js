@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import { Keyboard } from 'react-native'
 import {
   Container,
@@ -13,10 +13,11 @@ import {
   Body,
   TabHeading,
   Text
-} from "native-base";
-import BarCodeScan from "./BarCodeScan";
-import History from "./History";
-import Settings from "./Settings";  
+} from "native-base"
+import BarCodeScan from "../../containers/BarCodeScan"
+import History from "./History"
+import Settings from "./Settings"  
+import styles from '../common/CustomStyleSheet'
 
 
 export default class LandingActivity extends Component {
@@ -31,7 +32,7 @@ export default class LandingActivity extends Component {
     const { navigate } = this.props.navigation
 
     return (
-      <Container>         
+      <Container style={styles.container}>         
          
         <Tabs>
             <Tab heading={

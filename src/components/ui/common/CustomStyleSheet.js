@@ -31,7 +31,7 @@ const Styles = StyleSheet.create({
     },
      container: {
         backgroundColor: "#FFF",
-
+        paddingTop: 20,
     },
     loginButton : {
         marginTop: 10

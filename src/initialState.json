@@ -4,6 +4,7 @@
 		"sessionToken": ""
 	},
 	"errors": [],
+	"searchedProduct": null,
 	"products": [
 		{
 			"Id": "a0UD000000IKqPrMAL",
@@ -17,7 +18,11 @@
 			"Hierarchy_Level__c": "6",
 			"L1_Classification1__c": "Spirit",
 			"L2_Group1__c": "Liqueur",
-			"GUID__c": "a0UD000000IKqPr"
+			"GUID__c": "0705632441947",
+			"Price__c": "$2400",
+			"Manufacturing_Date__c":"01/01/15",
+			"Is_Genuine__c": true,
+			"Quantity__c": 1
 		},
 		{
 			"Id": "a0UD000000KbMjgMAF",
@@ -31,7 +36,11 @@
 			"Hierarchy_Level__c": "6",
 			"L1_Classification1__c": "Wine",
 			"L2_Group1__c": "Still Wine",
-			"GUID__c": "a0UD000000KbMjg"
+			"GUID__c": "9780123456786",
+			"Price__c": "$1400",
+			"Manufacturing_Date__c":"01/01/15",
+			"Is_Genuine__c": false,
+			"Quantity__c": 4
 		}
 	]
 }

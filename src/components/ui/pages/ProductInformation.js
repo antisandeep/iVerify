@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { StyleSheet, Image,TouchableOpacity,Dimensions } from "react-native";
-import styles from './../components/CustomStyleSheet'; 
+import React, { Component } from "react"
+import { StyleSheet, Image,TouchableOpacity,Dimensions } from "react-native"
+
 import {
   Container,
   Header,
@@ -15,39 +15,29 @@ import {
   Left,
   Body,
   Right
-} from "native-base";
-const deviceWidth = Dimensions.get("window").width; 
+} from "native-base"
+import Images from '@assets/images'
+import styles from '../common/CustomStyleSheet'
 
-const award = require("./../images/award.png");
+const deviceWidth = Dimensions.get("window").width 
 
-
-
-var ProductName ='';
-var ProductImgUrl='' ;
-var ProductQty=0 ;
-var ProductCost ='';
-var MnufacturedOn ='' ;
 
 export default class ProductInformation extends Component{
 static navigationOptions = {
     title: 'Product Information',
-};
+}
 constructor(props){
-  super(props);
-  const { params } = this.props.navigation.state;
-   ProductName = params ? params.ProductName : null;
-   ProductImgUrl = params ? params.ProductImgUrl : null;
-   ProductQty = params ? params.ProductQty : null;
-   ProductCost = params ? params.ProductCost : null;
-   MnufacturedOn = params ? params.MnufacturedOn : null;
-   IsGenuineProduct = params ? params.IsGenuineProduct : null;
-   this._navigateToReward = this._navigateToReward.bind(this); 
+  super(props)
+   
+   this._navigateToReward = this._navigateToReward.bind(this) 
 }
 _navigateToReward(){    
-  const { navigate } = this.props.navigation;
-  navigate('Reward');
+  const { navigate } = this.props.navigation
+  navigate('Reward')
 }
     render(){
+      const { params } = this.props.navigation.state
+
       return(
         
         <Content padder>
@@ -55,10 +45,10 @@ _navigateToReward(){
             <CardItem>
               <Left>
                 <TouchableOpacity onPress={this._navigateToReward}>  
-                  <Thumbnail source={award} />
+                  <Thumbnail source={Images.awardImage} />
                 </TouchableOpacity>
                 <Body>
-                  <Text style={{ fontSize: 25,fontWeight:'bold'}}>{ProductName}</Text> 
+                  <Text style={{ fontSize: 25,fontWeight:'bold'}}>{params.Name}</Text> 
                 </Body>
               </Left>
             </CardItem>
@@ -71,26 +61,26 @@ _navigateToReward(){
                   height: 400,
                   flex: 1
                 }}
-                source={require("./../images/don_Julio.jpg")}
+                source={Images.bottleLogo}
               />
             </CardItem>
 
             <CardItem>
             <Body>
               <Text>
-                  Manufactured on : {MnufacturedOn}
+                  Manufactured on : {params.Manufacturing_Date__c}
               </Text>            
               <Text>
-                  Pack of : {ProductQty}
+                  Pack of : {params.Quantity__c}
               </Text>             
               <Text>
-                  MRP : {ProductCost}
+                  MRP : {params.Price__c}
               </Text>
             </Body>
             </CardItem>
           </Card>
         </Content>
       
-      );
+      )
     }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { StyleSheet, Image,Dimensions } from "react-native";
-import styles from './../components/CustomStyleSheet'; 
 import {
   Container,
   Header,
@@ -16,7 +15,8 @@ import {
   Body,
   Right
 } from "native-base"; 
-const award = require("./../images/award.png");
+import Images from '@assets/images'
+import styles from '../common/CustomStyleSheet'
 
 
 export default class History extends Component{
@@ -26,7 +26,7 @@ export default class History extends Component{
           <Card>
             <CardItem>
               <Left>                
-                  <Thumbnail source={award} />                
+                  <Thumbnail source={Images.awardImage} />                
                 <Body>
                   <Text style={{ fontSize: 25,fontWeight:'bold'}}>Don Julio</Text> 
                 </Body>
@@ -50,7 +50,7 @@ export default class History extends Component{
           <Card>
             <CardItem>
               <Left>                
-                  <Thumbnail source={award} />                
+                  <Thumbnail source={Images.awardImage} />                
                 <Body>
                   <Text style={{ fontSize: 25,fontWeight:'bold'}}>johnny walker</Text> 
                 </Body>

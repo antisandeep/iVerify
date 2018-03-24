@@ -19,8 +19,32 @@ export const loginResult = (state={}, action) => {
     }
 }
 
+export const products = (state=[], action) => {
+    
+    return state    
+    
+}
+
+export const searchedProduct = (state=null, action) => {
+    switch(action.type){
+        case C.FETCH_PRODUCT_DETAILS:            
+            return action.payload
+        case C.CLEAR_FETCH_PRODUCT_DETAILS:
+            return null                
+        default:
+            return state
+    }
+}
+
+export const errors = (state=[], action) => {
+    return state
+}
+
 const singleReducer = combineReducers({
-    loginResult
+    loginResult,
+    errors,
+    products,
+    searchedProduct
 })
 
 export default singleReducer

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { StyleSheet, Image } from "react-native";
+import React, { Component } from "react"
+import { StyleSheet, Image } from "react-native"
 import {
   Container,
   Header,
@@ -14,20 +14,20 @@ import {
   Left,
   Body,
   Right
-} from "native-base";
+} from "native-base"
 
 export default class Reward extends Component{
     constructor(props){
-        super(props);
-        this._natigateToRedeemPoints = this._natigateToRedeemPoints.bind(this); 
+        super(props)
+        this._navigateToRedeemPoints = this._navigateToRedeemPoints.bind(this) 
     }
-    _natigateToRedeemPoints(){    
-        const { navigate } = this.props.navigation;
-        navigate('Redeem');
+    _navigateToRedeemPoints(){    
+        const { navigate } = this.props.navigation
+        navigate('Redeem')
     }
     static navigationOptions = {
         title: 'Rewards',
-    };
+    }
     render(){
         return(
             <Content padder >
@@ -37,10 +37,10 @@ export default class Reward extends Component{
                 <Text style={{fontSize : 30,textAlign : 'center'}}> points! </Text>
                 <Text style={{fontSize : 30,textAlign : 'center'}}> Total Reward Points :  </Text>
                 <Text style={{color:'orange',fontSize : 30,textAlign : 'center'}}> 150 </Text>
-                <Button block success onPress={this._natigateToRedeemPoints}>
+                <Button block success onPress={this._navigateToRedeemPoints}>
                     <Text>Redeem Points</Text>                    
                 </Button> 
             </Content>
-        );
+        )
     }
 }
