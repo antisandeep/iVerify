@@ -14,7 +14,8 @@ import {
     Left,
     Right,
     Body,
-    Thumbnail
+    Thumbnail,
+    Label
 } from "native-base"
 import { RNCamera } from 'react-native-camera'
 
@@ -38,7 +39,7 @@ export default class BarCodeScan extends Component {
     }
 
     setModalVisible(visible) {
-        this.setState({ 
+        this.setState({
             modalVisible: visible,
             CodeScanned: false
         })
@@ -58,11 +59,21 @@ export default class BarCodeScan extends Component {
     }
     _navigateToProductInfo() {
         const { navigate } = this.props.navigation
-        const {selectedProduct} = this.props
-        navigate('ProductInfo',selectedProduct)
+        const { selectedProduct } = this.props
+        navigate('ProductInfo', selectedProduct)
     }
     render() {
-        var {selectedProduct} = this.props
+        var { selectedProduct } = this.props
+        var children = (this.state.CodeScanned) ?
+            (selectedProduct === undefined || selectedProduct === null) ?
+                <Label style={{ color: "#DDD" }}>No product found</Label>
+                :
+                <ProductSummary
+                    product={selectedProduct}
+                    navigateToReward={this._navigateToReward}
+                    navigateToProductInfo={this._navigateToProductInfo}
+                /> :
+            <Label style={{ color: "#DDD" }}>Select a product bar code</Label>
         return (
             <Content padder>
                 <TouchableHighlight onPress={this._onpressScan}>
@@ -96,13 +107,7 @@ export default class BarCodeScan extends Component {
                         autoFocus={RNCamera.Constants.AutoFocus.on}
                     />
                 </Modal>
-                {this.state.CodeScanned &&
-                  <ProductSummary 
-                        product={selectedProduct}
-                        navigateToReward={this._navigateToReward}
-                        navigateToProductInfo={this._navigateToProductInfo}
-                    />  
-                }
+                {children}
             </Content>
         )
     }

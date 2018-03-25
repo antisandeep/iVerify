@@ -24,6 +24,7 @@ const ProductSummary = (
             navigateToProductInfo=f=>f
         }
     ) => (
+            
             <Card>
                 <CardItem bordered>
                     <Left>
@@ -69,6 +70,7 @@ const ProductSummary = (
                     </Right>
                 </CardItem>
             </Card>
+                        
         )
     
 

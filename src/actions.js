@@ -24,10 +24,8 @@ export const dummyLogin = (username, password, callback = f => f) => (dispatch, 
     }
 }
 
-export const dummyProductSearch = (productCode) => (dispatch, getState) => {
-    const product = getState().products.find( product => product.GUID__c === productCode)
-    dispatch({
+export const dummyProductSearch = (productCode) =>      
+    ({
         type: C.FETCH_PRODUCT_DETAILS,
-        payload: product
+        payload: productCode
     })
-}

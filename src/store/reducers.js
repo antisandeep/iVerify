@@ -26,14 +26,11 @@ export const products = (state=[], action) => {
 }
 
 export const searchedProduct = (state=null, action) => {
-    switch(action.type){
-        case C.FETCH_PRODUCT_DETAILS:            
+    if (action.type === C.FETCH_PRODUCT_DETAILS)
             return action.payload
-        case C.CLEAR_FETCH_PRODUCT_DETAILS:
+    else 
             return null                
-        default:
-            return state
-    }
+        
 }
 
 export const errors = (state=[], action) => {

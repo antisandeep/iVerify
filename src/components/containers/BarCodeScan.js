@@ -2,10 +2,14 @@ import { connect } from 'react-redux'
 import { dummyProductSearch } from '../../actions'
 import BarCodeScan from '../ui/pages/BarCodeScan'
 
-const mapStateToProps = (state, props) => ({
-    selectedProduct: state.searchedProduct,
-    navigation: props.navigation
-})
+const mapStateToProps = ({products, searchedProduct}, props) => {
+    
+    const product = products.find( product => product.GUID__c === searchedProduct)
+    return {
+        selectedProduct: product,
+        navigation: props.navigation
+    }
+}
 
 const mapDispatchToProps = dispatch => ({
     searchProduct(code){
