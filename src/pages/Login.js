@@ -35,8 +35,7 @@ export default class Login extends Component {
  _onpressLogin() {   
     const { navigate } = this.props.navigation;
     var _uname = this.state.uname; 
-    var _pwd = this.state.passwrd; 
-    
+    var _pwd = this.state.passwrd;     
     Keyboard.dismiss();     
     if(_uname == 'Diageo' && _pwd == 'Diageo123'){ 
         this.setState({passwrd : ''});   

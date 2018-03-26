@@ -1,11 +1,14 @@
 
 
 import React, { Component } from 'react';
+import { Image, Dimensions } from "react-native";
  
 import {
   StyleSheet,
 } from 'react-native';
- 
+
+const deviceWidth = Dimensions.get("window").width;
+
 const Styles = StyleSheet.create({
     scroll: {
         backgroundColor: '#E1D7D8',
@@ -60,6 +63,23 @@ const Styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center'  
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0 ,
+    opacity: 0.9
+  },
+  overlay1: {
+    position: 'absolute', 
+    top:0,
+    right: 0,
+    bottom: 0,
+    left: deviceWidth/2 ,
+    opacity: 0.9
+    
   }
 
 });

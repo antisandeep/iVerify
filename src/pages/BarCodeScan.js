@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Image, Dimensions } from "react-native";
+import { Image, Dimensions,Platform } from "react-native"; 
+
 import styles from './../components/CustomStyleSheet'; 
 import RenderCondition from './../components/RenderCondition';   
 
@@ -16,7 +17,8 @@ import {
   Left,
   Right,
   Body,
-  Thumbnail  
+  Thumbnail ,
+  View 
 } from "native-base"; 
 import {Modal,TouchableHighlight,TouchableOpacity} from 'react-native';
 import { RNCamera } from 'react-native-camera'; 
@@ -34,12 +36,16 @@ export default class BarCodeScan extends Component {
     this._onBarCodeRead = this._onBarCodeRead.bind(this);     
     this._navigateToReward = this._navigateToReward.bind(this); 
     this._natigateToProductInfo = this._natigateToProductInfo.bind(this); 
+    this._natigateToRetailerInfo = this._natigateToRetailerInfo.bind(this); 
+    this._hideModal = this._hideModal.bind(this); 
+    this._turnFlashOn = this._turnFlashOn.bind(this); 
   }
   
 state = {
     modalVisible: false,
     code: '',
-    CodeScanned: true
+    CodeScanned: false,
+    isTorchOn : false
   }; 
 
   setModalVisible(visible) {
@@ -68,6 +74,22 @@ _onpressScan (){
         MnufacturedOn: '01-01-15'
   });
 }
+_hideModal(){ 
+    this.setModalVisible(false);
+}
+_turnFlashOn(){    
+    if(this.state.isTorchOn){
+        this.setState({isTorchOn:false});
+    }else{
+        this.setState({isTorchOn:true});
+    }
+    
+}
+
+_natigateToRetailerInfo(){
+    const { navigate } = this.props.navigation;
+    navigate('RetailerInformation');
+}
   render(){
       return(   
         <Content padder key={this.state.code}>
@@ -89,7 +111,7 @@ _onpressScan (){
             transparent={false}
             visible={this.state.modalVisible}
             onRequestClose={() => {this.setModalVisible(false); }}> 
-                <RNCamera
+                <RNCamera 
                 ref={ref => {
                     this.camera = ref;
                 }}
@@ -101,6 +123,16 @@ _onpressScan (){
                 onBarCodeRead={this._onBarCodeRead}
                 autoFocus = {RNCamera.Constants.AutoFocus.on}
                 /> 
+                <View style = {styles.overlay}>
+                    <Button iconLeft light transparent onPress={this._hideModal}>
+                        <Icon active name="arrow-back" />               
+                    </Button>                    
+                </View>
+                {/* <View style={styles.overlay1}>
+                    <Button iconRight light transparent onPress={this._turnFlashOn}>
+                        <Icon active name="bulb" />               
+                    </Button>
+                </View> */}
             </Modal>
             {RenderCondition(this.state.CodeScanned,
                 <Card>
@@ -137,19 +169,13 @@ _onpressScan (){
                                 MRP : INR 2500
                             </Text>
                         </Body>
-                    </CardItem>
-                    <CardItem style={{ paddingVertical: 0 }}>
-                        <Left>                              
-                             <Button small onPress={this._natigateToProductInfo}>                                 
-                                <Text>More Info</Text>
-                            </Button> 
-                        </Left>                     
-                        <Right>
-                            <Button small>                                 
-                                <Text>Retailer Info</Text>
-                            </Button>
-                        </Right>
-                    </CardItem>
+                    </CardItem>                                                                    
+                    <Button block success onPress={this._natigateToProductInfo} style={{ margin: 10}}>                                 
+                        <Text>More Information</Text>
+                    </Button>                    
+                    <Button block success style={{ margin: 10}} onPress={this._natigateToRetailerInfo}>                                 
+                        <Text>Retailer Information</Text>
+                    </Button> 
                 </Card>
              )} 
         </Content>
