@@ -128,10 +128,8 @@ _natigateToRetailerInfo(){
                         <Icon active name="arrow-back" />               
                     </Button>                    
                 </View>
-                {/* <View style={styles.overlay1}>
-                    <Button iconRight light transparent onPress={this._turnFlashOn}>
-                        <Icon active name="bulb" />               
-                    </Button>
+                {/* <View style={styles.overlay1}>                     
+                    <Icon active name="ios-qr-scanner" square style={styles.viewFinder}/>
                 </View> */}
             </Modal>
             {RenderCondition(this.state.CodeScanned,

@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 const deviceWidth = Dimensions.get("window").width;
+const deviceHeight= Dimensions.get("window").height;
 
 const Styles = StyleSheet.create({
     scroll: {
@@ -73,13 +74,12 @@ const Styles = StyleSheet.create({
     opacity: 0.9
   },
   overlay1: {
-    position: 'absolute', 
-    top:0,
-    right: 0,
-    bottom: 0,
-    left: deviceWidth/2 ,
-    opacity: 0.9
-    
+    position: 'absolute',  
+    opacity: 0.9 
+  },
+  viewFinder:{
+    fontSize:deviceWidth,
+    color:'white'  
   }
 
 });
